@@ -17,18 +17,30 @@ const app = express();
 // GET http://localhost:3333/users/5 = Buscar dados do usuário com id 5
 
 
+// Request Param: Parametros que vem na  própria rota qe identificam um recurso 
+const users = [
+    'Diego',
+    'Cleiton',
+    'Robson',
+    'Daniel'
+];
+
+
 app.get('/users', (requist, response) => {
     console.log('Listagem de usuários');
 
 // JSON
 
-    return response.json([
-        'Diego',
-        'Cleiton',
-        'Robson',
-        'Daniel'
-    ]);
+    return response.json(users);
 });
+
+app.get('/users/:id',(request, response) => {
+    const id = Number(request.params.id);
+
+    const user = users[id];
+
+    return response.json(user);
+})
 
 
 app.post('/users', (request, response) => {
