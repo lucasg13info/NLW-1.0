@@ -2,7 +2,7 @@ import express, { request } from 'express';
 
 const app = express();
 
-
+app.use(express.json());
 //ROTA: ENDEREÇO COMPLETO DA REQUISIÇÃO
 //RECURSO: QUAL ENTIDADE ESTAMOS ACESSANDO DO SISTEMA
 
@@ -18,7 +18,8 @@ const app = express();
 
 
 // Request Param: Parametros que vem na  própria rota qe identificam um recurso 
-//Query Param: Parametros que vem na própria rota geralmente opcionais para filtros, paginação.
+// Query Param: Parametros que vem na própria rota geralmente opcionais para filtros, paginação.
+// Request body: parametros para criação/atualizaão de informações, nome, endereço, senha...
 
 const users = [
     'Diego',
@@ -48,9 +49,13 @@ app.get('/users/:id',(request, response) => {
 
 
 app.post('/users', (request, response) => {
+    const data = request.body;
+
+
+    
     const user = {
-        name: 'Diego',
-        email: 'diego@rocketseat.com.br'
+        name: data.name,
+        email: data.email,
     }
 
     return response.json(user);
