@@ -18,6 +18,8 @@ const app = express();
 
 
 // Request Param: Parametros que vem na  própria rota qe identificam um recurso 
+//Query Param: Parametros que vem na própria rota geralmente opcionais para filtros, paginação.
+
 const users = [
     'Diego',
     'Cleiton',
@@ -26,12 +28,14 @@ const users = [
 ];
 
 
-app.get('/users', (requist, response) => {
-    console.log('Listagem de usuários');
+app.get('/users', (request, response) => {
+    const search = String(request.query.search);
 
-// JSON
 
-    return response.json(users);
+    const filteredUsers = search ? users.filter(user => user.includes(search)) : users;
+
+
+    return response.json(filteredUsers);
 });
 
 app.get('/users/:id',(request, response) => {
