@@ -8,7 +8,6 @@ class PointsController {
             const {city, uf, items} = request.query;
 
             console.log(city, uf, items);
-
             const parsedItems = String(items)
             .split(',')
             .map(item => Number(item.trim()));
