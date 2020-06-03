@@ -3,6 +3,25 @@ import Knex from '../database/connection';
 
 
 class PointsController {
+
+    async show(request:Request, response: Response){
+        const { id } = request.params;
+
+        const point = await Knex('points').where('id', id).first();
+
+        if (!point){
+            return response.status(400).json({message: 'Point not faund.'})
+        } 
+
+
+        const items = await Knex('items')
+            .join( 'point_items',  'item.id',  '=', 'point_items.item_id')
+            .where('point_items.point_id', id);
+
+
+
+        return response.json({point, items});
+    }
     async create(request: Request, response: Response){
         const {
             name,
