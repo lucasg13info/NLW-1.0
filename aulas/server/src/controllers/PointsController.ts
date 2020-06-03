@@ -4,7 +4,19 @@ import Knex from '../database/connection';
 
 class PointsController {
 
+    async index(request:Request, response: Response){
+            const {city, uf, items} = request.query;
+
+            console.log(city, uf, items);
+
+            const parsedItems = String(items).split(',').map(item => Number(item.trim()))
+
+            return response.json({ok: true})
+    } 
+
     async show(request:Request, response: Response){
+
+        
         const { id } = request.params;
 
         const point = await Knex('points').where('id', id).first();
