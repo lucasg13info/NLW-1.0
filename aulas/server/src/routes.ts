@@ -1,8 +1,10 @@
 import express, { response } from 'express';
 import Knex from './database/connection'
 
-const routes = express.Router();
+import PointsController from './controllers/PointsController'; 
 
+const routes = express.Router();
+const pointsController = new PointsController();
 
 routes.get('/items', async (request, response) => {
     const items = await Knex('items').select('*');
@@ -17,6 +19,6 @@ routes.get('/items', async (request, response) => {
     return response.json({serializedItems})
 });
 
-routes.post('/points', );
+routes.post('/points', pointsController.create );
 
 export default routes;
