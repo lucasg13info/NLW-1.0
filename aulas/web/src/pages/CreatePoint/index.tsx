@@ -150,6 +150,7 @@ async function handleSubmit(event: FormEvent){
         items
     };
     await api.post('points', data);
+    
     alert('Ponto de coleta criado!')
 
     history.push('/')
