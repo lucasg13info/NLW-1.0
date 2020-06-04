@@ -1,13 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import {Link} from 'react-router-dom';
 import {FiArrowDownLeft} from 'react-icons/fi'
 import { Map, TileLayer, Marker} from 'react-leaflet'
+import api from '../../services/api';
 
 import './styles.css';
 
 import logo from '../../assets/logo.svg';
-import { tileLayer } from 'leaflet';
+
+
 const CreatePoint = () => {
+   const [items, setItems] = useState([]);
+
+    useEffect(() => {
+        api.get('items').then(response => {
+            setItems(response.data)
+        });
+}, []);
+
     return (
         <div id="page-create-point">
             <header>
@@ -93,40 +103,24 @@ const CreatePoint = () => {
                         <h2>Ítens de coleta</h2>
                         <span>Selecione um ou mais ítens abaixo</span>
                     </legend>
+
                     <ul className="items-grid">
+                        {items.map(item => (
                         <li>
                             <img src="http://localhost:3333/uploads/oleo.svg" alt="Óleo"/>
                             <span>Óleo de Cozinha</span>
                         </li>
-                        <li className="selected">
-                            <img src="http://localhost:3333/uploads/olego.svg" alt="Óleo"/>
-                            <span>Óleo de Cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/olego.svg" alt="Óleo"/>
-                            <span>Óleo de Cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/olego.svg" alt="Óleo"/>
-                            <span>Óleo de Cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/olego.svg" alt="Óleo"/>
-                            <span>Óleo de Cozinha</span>
-                        </li>
-                        <li>
-                            <img src="http://localhost:3333/uploads/olego.svg" alt="Óleo"/>
-                            <span>Óleo de Cozinha</span>
-                        </li>
+                        ))}
                     </ul>
-
                 </fieldset>
 
-                <button type="submit">Cadastrar ponto de coleta</button>
+                <button type="submit">
+                    Cadastrar ponto de coleta
+                </button>
 
             </form>
         </div>
-    )
-}
+    );
+};
 
 export default CreatePoint;
