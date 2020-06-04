@@ -15,3 +15,8 @@
     
 <h1 align="center">♻️ Ecoleta </h1>
 <p align="center"> <img src="/logo.JPG"></img> </p>
+
+<p align="center"> <img src="/home.JPG"></img> </p>
+<p align="center"> <img src="/home.JPG"></img> </p>
+<p align="center"> <img src="/home.JPG"></img> </p>
+<p align="center"> <img src="/home.JPG"></img> </p>
