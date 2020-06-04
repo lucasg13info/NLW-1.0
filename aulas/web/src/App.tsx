@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 
-import Home from './pages/Home';
+import Routes from './routes';
 import CreatePoint from './pages/CreatePoint'
+import { Route } from 'react-router-dom';
 
 
 
 function App() {
     return (
-        <CreatePoint />
+        <Routes />
   );
 }
 export default App;
