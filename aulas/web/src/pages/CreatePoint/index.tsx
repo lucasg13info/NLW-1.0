@@ -41,6 +41,7 @@ const CreatePoint = () => {
 
    const [selectedUf, setSelectedUf]= useState('0');
    const [selectedCity, setSelectedCity]= useState('0');
+   const [selectedItems, setSelecterItems] = useState<number[]>([]);
    const [selectedPosition, setSelectedPosition] = useState<[number,number]>([0,0]);
 
 
@@ -112,6 +113,20 @@ function handleInputChange(event: ChangeEvent<HTMLInputElement>){
     setFormData({...formData, [name]: value});
 }
 
+
+function handleSelectItem(id: number){
+    const alreadySelected = selectedItems.findIndex(item =>item === id);
+
+    if(alreadySelected >= 0){ 
+        const filteredItems = selectedItems.filter(item => item !== id);
+
+        setSelecterItems(filteredItems);
+        
+        
+    }else{
+        setSelecterItems([...selectedItems, id])
+    }   
+}
     return (
         <div id="page-create-point">
             <header>
@@ -219,7 +234,11 @@ function handleInputChange(event: ChangeEvent<HTMLInputElement>){
 
                     <ul className="items-grid">
                         {items.map(item => (
-                        <li key={item.id}>
+                        <li 
+                            key={item.id}
+                            onClick={() => handleSelectItem(item.id)}
+                            className={selectedItems.includes(item.id) ? 'selected' : ''}    
+                        >
                             <img src={item.image_url} alt={item.title}/>
                         <span>{item.title}</span>
                         </li>
