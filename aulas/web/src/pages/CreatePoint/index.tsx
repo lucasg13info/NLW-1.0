@@ -66,6 +66,9 @@ const CreatePoint = () => {
                             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             />
+                            <Marker position ={[-27.2092052, -49.6401092]} />
+
+                            
                         </Map>
 
                     <div className="field-group">
