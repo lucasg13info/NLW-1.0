@@ -1,5 +1,5 @@
 import React, { useEffect, useState, ChangeEvent, FormEvent  } from 'react'
-import {Link} from 'react-router-dom';
+import {Link, useHistory} from 'react-router-dom';
 import {FiArrowDownLeft} from 'react-icons/fi'
 import { Map, TileLayer, Marker} from 'react-leaflet'
 import axios from 'axios';
@@ -43,6 +43,8 @@ const CreatePoint = () => {
    const [selectedCity, setSelectedCity]= useState('0');
    const [selectedItems, setSelecterItems] = useState<number[]>([]);
    const [selectedPosition, setSelectedPosition] = useState<[number,number]>([0,0]);
+
+   const history = useHistory();
 
 
    useEffect(() => {
@@ -149,6 +151,8 @@ async function handleSubmit(event: FormEvent){
     };
     await api.post('points', data);
     alert('Ponto de coleta criado!')
+
+    history.push('/')
 }
     return (
         <div id="page-create-point">
