@@ -1,8 +1,9 @@
 import React from 'react'
-import { View, StyleSheet, TouchableOpacity} from 'react-native';
 import { Feather as Icon} from '@expo/vector-icons'
-import { useNavigation } from '@react-navigation/native'
 import Constants from 'expo-constants'
+import { useNavigation } from '@react-navigation/native'
+import { View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import  MapView  from 'react-native-maps'
 
 const Points = () => {
     const navigation = useNavigation();
@@ -15,8 +16,15 @@ const Points = () => {
     <View style={styles.container}> 
         <TouchableOpacity onPress={handleNavigateBack}>
             <Icon name="arrow-left" size={20} color="#34cb79" />
+            </TouchableOpacity>
 
-        </TouchableOpacity>
+        <Text style={styles.title}>Bem vindo.</Text>
+        <Text style={styles.description}>Encontre no mapa um ponto de coleta.</Text>
+
+        <View style={styles.mapContainer}>
+            <MapView style={styles.map} />
+
+        </View>
     </View>
     );
 };
