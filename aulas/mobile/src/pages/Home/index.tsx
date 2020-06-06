@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, ImageBackground, Text, Image, StyleSheet } from 'react-native';
+import { RectButton} from 'react-native-gesture-handler'
 
 
 
@@ -18,6 +19,19 @@ const Home = () => {
         </View>
 
         <View style={styles.footer}>
+            <RectButton style={styles.button} onPress ={() => {}}> 
+              <View style={styles.buttonIcon}>
+                <Text> 
+                  >
+                </Text>
+              </View>
+              <Text style={styles.buttonText}> 
+                Entrar 
+              </Text>
+              
+            </RectButton>
+          
+
 
         </View>
     </ImageBackground> 
