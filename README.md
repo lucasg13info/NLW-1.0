@@ -10,6 +10,10 @@
     <li>React</li>
     <li>React Native</li>
     <li>Expo</li>
+    <li>SQL</li>
+    <li>Construção de uma Rest API</li>
+    <li>Consumo de API externa</li>
+    <li>Geolicalização</li>  
   </ul>
   
 <h2>Para rodar o servidor, web e mobile: </h2>
