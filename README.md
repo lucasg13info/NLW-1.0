@@ -2,7 +2,7 @@
 <p align="center"> <img src="/capa.JPG"></img> </p>
 
 
-<h1> 🚀  Tecnologias</h1>
+<h1> 🚀 Tecnologias</h1>
   <ul>
     <li>Node.js</li>
     <li>JavaSript</li>
