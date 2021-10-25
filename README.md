@@ -1,7 +1,6 @@
 <h1 align="center"> 💻 NextLevelWeek 1.0 🚀 </h1>
 <p align="center"> <img src="/capa.JPG"></img> </p>
 
-
 <h1> 🚀 Tecnologias</h1>
   <ul>
     <li>Node.js</li>
