@@ -21,8 +21,6 @@
     <h3>WEB: npm start </h3>
     <h3>Mobile: npm start ou expo start </h3>
       
-
-
 # running on port 3000
     
 <h1 align="center">♻️ Ecoleta </h1>
